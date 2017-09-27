@@ -1,16 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-
+import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import { App } from "./app.component";
 @NgModule({
   declarations: [
-    AppComponent
+    App
   ],
   imports: [
-    BrowserModule
+     AgmCoreModule.forRoot({
+     
+      libraries: ["places"]
+    }),
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [App],
+  bootstrap: [App]
 })
 export class AppModule { }
